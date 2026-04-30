@@ -7,7 +7,9 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      <Hero />
+      <section id="inicio" className="scroll-mt-32">
+        <Hero />
+      </section>
       <div className="w-full max-w-[1800px] mx-auto px-[5%] py-32 space-y-48">
         <section id="carta" className="scroll-mt-32"><Menu /></section>
         <section id="reservas" className="scroll-mt-32 pb-20"><BookingSection /></section>
