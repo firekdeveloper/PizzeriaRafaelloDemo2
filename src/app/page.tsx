@@ -16,6 +16,7 @@ export default function Home() {
         <div className="title-serif italic text-3xl mb-4 text-dark-rich">Raffaello</div>
         <p className="text-[10px] uppercase tracking-[0.5em] text-stone-400">Roma · Madrid · Londres</p>
       </footer>
+      {/* Trigger redeploy - test */}
     </main>
   );
 }
