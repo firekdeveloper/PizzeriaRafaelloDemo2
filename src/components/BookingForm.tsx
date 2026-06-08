@@ -2,6 +2,7 @@
 import { useState, useEffect, type FormEvent } from 'react';
 
 const AVAILABLE_SLOTS = ["13:00", "13:30", "14:00", "14:30", "20:30", "21:00", "21:30", "22:00"];
+const NAME_REGEX = /^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ' -]+$/;
 
 type FieldErrors = {
   name?: string;
@@ -48,6 +49,8 @@ export default function BookingForm() {
 
     if (cleanName.length < 2) {
       errors.name = 'Introduce un nombre valido (minimo 2 caracteres).';
+    } else if (!NAME_REGEX.test(cleanName)) {
+      errors.name = 'El nombre solo puede contener letras.';
     }
 
     if (cleanPhoneDigits.length < 9 || cleanPhoneDigits.length > 15) {
@@ -151,6 +154,8 @@ export default function BookingForm() {
             <input
               required
               type="text"
+              pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ' -]+"
+              title="El nombre solo puede contener letras"
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
